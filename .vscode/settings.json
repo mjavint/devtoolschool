@@ -1,0 +1,7 @@
+{
+  "python.autoComplete.extraPaths": [
+    "/Users/mjavint/Workspaces/Odoo/Youtube/res/odoo",
+    "/Users/mjavint/Workspaces/Odoo/Youtube/res/odoo/addons",
+    "/Users/mjavint/Workspaces/Odoo/Youtube/vsc-odoo-dev/custom_addons"
+  ]
+}

@@ -8,9 +8,11 @@
       "stopOnEntry": false,
       "python": "${command:python.interpreterPath}",
       "console": "integratedTerminal",
-      "program": "/path/code/odoo/odoo-bin",
+      "program": "/Users/mjavint/Workspaces/Odoo/Youtube/res/odoo/odoo-bin",
       "args": ["-c", "${workspaceRoot}/odoo.conf"],
-      "cwd": "${workspaceRoot}"
+      "cwd": "${workspaceRoot}",
+      "env": {},
+      "envFile": "${workspaceRoot}/.env"
     }
   ]
 }

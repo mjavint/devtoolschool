@@ -1,6 +1,8 @@
 {
-    "stubPath": "/path/odoo-stubs",
+    "stubPath": "/Users/mjavint/Workspaces/Odoo/Youtube/res/odoo-stubs15",
     "extraPaths": [
-        "/path/addons/addons"
+        "/Users/mjavint/Workspaces/Odoo/Youtube/res/odoo",
+        "/Users/mjavint/Workspaces/Odoo/Youtube/res/odoo/addons",
+        "/Users/mjavint/Workspaces/Odoo/Youtube/vsc-odoo-dev/custom_addons"
     ]
 }
