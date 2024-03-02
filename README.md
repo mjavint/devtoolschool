@@ -1,1 +1,1 @@
-# Tips and Tricks in Odoo 17
+# Odoo 17 - Tips and Tricks
