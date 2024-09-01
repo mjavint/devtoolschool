@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates xml:space="preserve">
+    <t t-name="owl_website.OwlPartner" owl="1">
+        <div class="m-4">
+            <div class="row row-cols-1 row-cols-md-3 row-cols-md-5 g-4">
+                <t t-foreach="state.partners" t-as="partner" t-key="partner.id">
+                    <div class="col">
+                        <div class="card">
+                            <img t-att-src="`data:image/png;base64,${partner.image_128}`" class="card-img-top" t-att-alt="partner.name"/>
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <span t-esc="partner.name"/>
+                                </h5>
+                                <p class="card-text">Este el teléfono disponible: <span t-esc="partner.phone"/>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </t>
+</templates>
