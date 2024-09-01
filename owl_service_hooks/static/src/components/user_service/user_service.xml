@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates xml:space="preserve">
+    <t t-name="owl_service_hooks.UserService"
+        owl="1">
+        <div class="o_action">
+            <Layout display="{
+                controlPanel: {
+                    'top-right' : false,
+                    'top-left' : false,
+                    'bottom-right': false,
+                    'bottom-left': false,
+                }
+            }">
+                <t t-set-slot="control-panel-always-buttons">
+                    <button class="btn btn-primary"
+                        t-on-click="getCurrentUser">User Services</button>
+                </t>
+                <div class="row">
+                    <t t-if="this.state.current_user">
+                        <span t-esc="this.state.current_user"/>
+                    </t>
+                </div>
+            </Layout>
+        </div>
+    </t>
+</templates>

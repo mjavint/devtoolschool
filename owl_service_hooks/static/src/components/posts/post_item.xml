@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates xml:space="preserve">
+    <t t-name="owl_service_hooks.PostItem"
+        owl="1">
+        <div>
+            <span t-esc="props.post.id"/>
+            <br/>
+            <span t-esc="props.post.title"/>
+            <br/>
+            <span t-esc="props.post.body"/>
+            <br/>
+            <button t-on-click="showNotification">Show Notification</button>
+            <button t-on-click="showDialog">Show Dialog</button>
+            <hr/>
+        </div>
+    </t>
+</templates>

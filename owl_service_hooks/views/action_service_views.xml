@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="action_action_service_client"
+            model="ir.actions.client">
+            <field name="name">ActionService</field>
+            <field name="tag">owl_service_hooks.ActionService</field>
+            <field name="target">main</field>
+        </record>
+
+        <menuitem id="menu_owl_root"
+            name="Owl" />
+        <menuitem id="menu_action_service"
+            name="Action Service"
+            parent="menu_owl_root"
+            action="action_action_service_client"
+            sequence="40"/>
+
+    </data>
+</odoo>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="action_orm_service_client"
+            model="ir.actions.client">
+            <field name="name">Orm Service</field>
+            <field name="tag">owl_service_hooks.OrmService</field>
+            <field name="target">main</field>
+        </record>
+
+        <menuitem id="menu_owl_root"
+            name="Owl" />
+        <menuitem id="menu_orm_service"
+            name="Orm Service"
+            parent="menu_owl_root"
+            action="action_orm_service_client"
+            sequence="11"/>
+
+    </data>
+</odoo>

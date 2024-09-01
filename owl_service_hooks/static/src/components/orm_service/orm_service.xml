@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates xml:space="preserve">
+    <t t-name="owl_service_hooks.OrmService"
+        owl="1">
+        <div class="o_action">
+            <Layout display="{
+                controlPanel: {
+                    'top-right' : false,
+                    'top-left' : false,
+                    'bottom-right': false,
+                    'bottom-left': false,
+                }
+            }">
+                <t t-set-slot="control-panel-always-buttons">
+                    <button class="btn btn-primary"
+                        t-on-click="getOrmService">ORM Services</button>
+                </t>
+                <div class="m-4">
+                    <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-4">
+                        <t t-if="state.partners"
+                            t-foreach="state.partners"
+                            t-as="data"
+                            t-key="data.id">
+                            <div class="col">
+                                <div class="card">
+                                    <img t-att-src="`data:image/png;base64,${data.image_128}`"
+                                        class="card-img-top"
+                                        t-att-alt="data.name"/>
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <span t-esc="data.name"/>
+                                        </h5>
+                                        <p class="card-text">
+                                            <span t-esc="data.phone"/>
+                                        </p>
+                                        <p class="card-text">
+                                            <span t-esc="data.website"/>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+            </Layout>
+        </div>
+    </t>
+</templates>

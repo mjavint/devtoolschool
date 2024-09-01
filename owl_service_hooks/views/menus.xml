@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem id="menu_owl_root"
+            name="Owl" />
+        <menuitem id="menu_http"
+            name="Http Service"
+            parent="menu_owl_root"
+            sequence="30"/>
+
+    </data>
+</odoo>
