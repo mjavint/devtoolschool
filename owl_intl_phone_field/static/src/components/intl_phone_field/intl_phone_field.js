@@ -27,10 +27,10 @@ export class IntlPhoneField extends PhoneField {
 
     onWillStart(async () => {
       await loadCSS(
-        '/owl_tips/static/src/lib/intl-tel-input/build/css/intlTelInput.css'
+        '/owl_intl_phone_field/static/src/lib/intl-tel-input/build/css/intlTelInput.css'
       );
       await loadJS(
-        '/owl_tips/static/src/lib/intl-tel-input/build/js/intlTelInput.min.js'
+        '/owl_intl_phone_field/static/src/lib/intl-tel-input/build/js/intlTelInput.min.js'
       );
     });
 
@@ -39,7 +39,8 @@ export class IntlPhoneField extends PhoneField {
         separateDialCode: this.props.separateDialCode,
         initialCountry: this.props.initialCountry,
         onlyCountries: this.props.onlyCountries,
-        utilsScript: '/owl_tips/static/src/lib/intl-tel-input/build/js/utils.js',
+        utilsScript:
+          '/owl_intl_phone_field/static/src/lib/intl-tel-input/build/js/utils.js',
       });
     });
   }
