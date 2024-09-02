@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_owl_env_root"
+        name="OWL using Enviroment" />
+</odoo>

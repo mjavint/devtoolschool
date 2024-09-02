@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+
+    <t t-name="owl_env.TaskItem">
+        <div class="form-check">
+            <input class="form-check-input"
+                type="checkbox"
+                t-att-id="props.task.id"
+                t-att-checked="props.task.isCompleted"
+                t-on-change="onChange"/>
+            <label t-att-for="props.task.id"
+                t-att-class="props.task.isCompleted ? 'text-decoration-line-through text-muted' : '' ">
+                <t t-esc="props.task.id"/>
+.
+                <t t-esc="props.task.description"/>
+            </label>
+            <span role="button"
+                class="fa fa-remove ms-3 text-danger"
+                t-on-click="onRemove"/>
+        </div>
+    </t>
+
+</templates>
