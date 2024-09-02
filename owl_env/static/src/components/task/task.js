@@ -2,23 +2,20 @@
 
 import { registry } from '@web/core/registry';
 import { Layout } from '@web/search/layout';
-import { TaskList } from './task_list';
+import { TaskList } from '@owl_env/components/task_list/task_list';
 
-import { Component, useState, useSubEnv, useChildSubEnv } from '@odoo/owl';
-import { TaskStore, useTaskStore } from './task_store';
+import { Component, useState } from '@odoo/owl';
 
 export class Task extends Component {
   static template = 'owl_env.Task';
   static components = { TaskList, Layout };
 
   setup() {
-    this.nextId = 1;
-    this.lists = useState([]);
+    this.store = useState(this.env.taskStore);
   }
 
   addNewList() {
-    const id = this.nextId++;
-    this.lists.push({ id, name: `List ${id}` });
+    this.store.createList();
   }
 }
 

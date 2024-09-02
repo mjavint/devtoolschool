@@ -4,7 +4,7 @@
     <t t-name="owl_env.TaskList">
         <div class="o-todolist border m-1 p-2">
             <h3>
-                <t t-esc="props.name"/>
+                <t t-esc="props.list.name"/>
             </h3>
             <input type="text"
                 placeholder="Add a Task"
@@ -12,12 +12,10 @@
                 class="form-control mb-3"
                 t-on-keyup="addTask"/>
             <div class="m-2">
-                <t t-foreach="tasks"
+                <t t-foreach="props.list.tasks"
                     t-as="task"
                     t-key="task.id">
-                    <TaskItem task="task"
-                        toggle.bind="toggleTask"
-                        remove.bind="removeTask"/>
+                    <TaskItem task="task"/>
                 </t>
             </div>
         </div>

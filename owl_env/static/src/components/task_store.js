@@ -1,7 +1,5 @@
 /** @odoo-module */
 
-import { useEnv, useState } from '@odoo/owl';
-
 export class TaskStore {
   static nextId = 1;
 
@@ -36,9 +34,4 @@ export class TaskStore {
     const index = list.tasks.findIndex((t) => t.id === taskId);
     list.tasks.splice(index, 1);
   }
-}
-
-export function useTaskStore() {
-  const env = useEnv();
-  return useState(env.taskStore);
 }

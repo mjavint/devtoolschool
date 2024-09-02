@@ -16,10 +16,10 @@
                         t-on-click="addNewList">New List</button>
                 </t>
                 <div class="o-content d-flex align-items-start p-1">
-                    <t t-foreach="lists"
+                    <t t-foreach="store.lists"
                         t-as="list"
                         t-key="list.id">
-                        <TaskList name="list.name"/>
+                        <TaskList list="list"/>
                     </t>
                 </div>
             </Layout>
