@@ -1,9 +1,0 @@
-<odoo>
-
-    <template id="custom_page" name="Custom Page">
-        <t t-call="website.layout">
-            <owl-component name="owl_website.OwlPartner" />
-        </t>
-    </template>
-
-</odoo>
