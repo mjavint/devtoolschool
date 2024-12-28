@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- View product.price.wizard form -->
+    <record id="view_product_price_wizard_form" model="ir.ui.view">
+        <field name="name">view.product.price.wizard.form</field>
+        <field name="model">product.price.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Product Price Wizard">
+                <div class="oe_title">
+                    <label for="name" />
+                    <h1>
+                        <field name="name" placeholder="Name..." />
+                    </h1>
+                </div>
+                <footer>
+                    <button name="add" type="object" string="Add"
+                        class="oe_highlight" />
+                    <button special="cancel" string="Cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action product.price.wizard -->
+    <record id="action_product_price_wizard" model="ir.actions.act_window">
+        <field name="name">Product Price Wizard</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.price.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="binding_model_id" ref="product.model_product_template" />
+        <field name="target">new</field>
+    </record>
+
+</odoo>
