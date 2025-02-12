@@ -2,9 +2,10 @@
 
 import { registry } from '@web/core/registry';
 import { standardFieldProps } from '@web/views/fields/standard_field_props';
-import { Component, useState, useRef, onWillUpdateProps } from '@odoo/owl';
+import { Component, useState, useRef, onWillUpdateProps,onWillStart } from '@odoo/owl';
 import { useService } from '@web/core/utils/hooks';
 import { MapPopover } from '../map_popover/map_popover';
+import { rpc } from "@web/core/network/rpc";
 
 export class MapWidget extends Component {
   static template = 'widget_geolocation_map.MapWidget';
@@ -14,6 +15,7 @@ export class MapWidget extends Component {
   };
   setup() {
     this.popover = useService('popover');
+    this.orm = useService('orm')
     this.popupRef = useRef('popupRef');
     this.state = useState({
       coordinates: this.getCoordinates(),
@@ -21,11 +23,16 @@ export class MapWidget extends Component {
     });
 
     onWillUpdateProps((nextProps) => {
+    
+      
       const newCoordinates = this.getCoordinates(nextProps);
       if (JSON.stringify(newCoordinates) !== JSON.stringify(this.state.coordinates)) {
         this.state.coordinates = newCoordinates;
       }
+
     });
+  
+
   }
 
   getCoordinates(props = this.props) {
@@ -45,16 +52,34 @@ export class MapWidget extends Component {
 
   openMapPopover() {
     if (!this.state.isPopoverOpen) {
+      console.log(this.props.record);
+      
       this.popover.add(
         this.popupRef.el,
         MapPopover,
         {
           coordinates: this.state.coordinates,
-          save: (newCoordinates) => {
+          save: async(newCoordinates,address) => {
+            console.log("addresss in parrent",address)
+            const data = await rpc('/partner/map_address',{ address: address})
+      
             this.state.coordinates = newCoordinates;
             this.props.record.update({
-              [this.props.name]: newCoordinates,
+              [this.props.name]: newCoordinates
             });
+      
+
+            // this.props.record.data["state_id"]= addressData.state_id
+            await this.orm.write('res.partner', [this.props.record.resId],
+              {
+                  'state_id':data.state_id,
+                  'street': data.street,
+                  'city': data.city,
+                  'zip': data.zip,
+                  'country_id':data.country_id
+
+              }
+          );
           },
           close: () => {
             this.state.isPopoverOpen = false;

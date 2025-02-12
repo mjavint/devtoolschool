@@ -8,6 +8,6 @@ _logger = logging.getLogger(__name__)
 
 
 class ResPartner(models.Model):
-    _inherit = 'res.partner'
+    _inherit = "res.partner"
 
-    coordinates = fields.Json(string='Coordinates')
+    coordinates = fields.Json(string="Coordinates")
