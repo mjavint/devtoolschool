@@ -2,7 +2,7 @@
 
 import { registry } from '@web/core/registry';
 import { standardFieldProps } from '@web/views/fields/standard_field_props';
-import { Component, useState, useRef } from '@odoo/owl';
+import { Component, useState, useRef, onWillUpdateProps } from '@odoo/owl';
 import { useService } from '@web/core/utils/hooks';
 import { MapPopover } from '../map_popover/map_popover';
 
@@ -19,10 +19,17 @@ export class MapWidget extends Component {
       coordinates: this.getCoordinates(),
       isPopoverOpen: false,
     });
+
+    onWillUpdateProps((nextProps) => {
+      const newCoordinates = this.getCoordinates(nextProps);
+      if (JSON.stringify(newCoordinates) !== JSON.stringify(this.state.coordinates)) {
+        this.state.coordinates = newCoordinates;
+      }
+    });
   }
 
-  getCoordinates() {
-    const value = this.props.record.data[this.props.name];
+  getCoordinates(props = this.props) {
+    const value = props.record.data[props.name];
     try {
       if (typeof value === 'string') {
         return JSON.parse(value);
