@@ -52,7 +52,7 @@ export class MapWidget extends Component {
 
   openMapPopover() {
     if (!this.state.isPopoverOpen) {
-      console.log(this.props.record);
+      console.log(this.props);
       
       this.popover.add(
         this.popupRef.el,
@@ -67,10 +67,8 @@ export class MapWidget extends Component {
             this.props.record.update({
               [this.props.name]: newCoordinates
             });
-      
-
             // this.props.record.data["state_id"]= addressData.state_id
-            await this.orm.write('res.partner', [this.props.record.resId],
+            await this.orm.write(this.props.record._config.resModel, [this.props.record.resId],
               {
                   'state_id':data.state_id,
                   'street': data.street,
