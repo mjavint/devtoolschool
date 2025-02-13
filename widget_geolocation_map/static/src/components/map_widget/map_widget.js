@@ -67,17 +67,19 @@ export class MapWidget extends Component {
             this.props.record.update({
               [this.props.name]: newCoordinates
             });
+            if (this.props.record.resId){
+              await this.orm.write(this.props.record._config.resModel, [this.props.record.resId],
+                {
+                    'state_id':data.state_id || false,
+                    'street': data.street,
+                    'city': data.city,
+                    'zip': data.zip,
+                    'country_id':data.country_id || false
+  
+                }
+            );
+            }
             // this.props.record.data["state_id"]= addressData.state_id
-            await this.orm.write(this.props.record._config.resModel, [this.props.record.resId],
-              {
-                  'state_id':data.state_id,
-                  'street': data.street,
-                  'city': data.city,
-                  'zip': data.zip,
-                  'country_id':data.country_id
-
-              }
-          );
           },
           close: () => {
             this.state.isPopoverOpen = false;
