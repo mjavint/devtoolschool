@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates xml:space="preserve">
+    <t t-name="partner_geolocation_map.MapPopover">
+        <div class="map-popover">
+            <div style="height: 400px; width: 600px;" t-ref="map"></div>
+            <div class="text-end mt-2">
+                <button type="button" class="btn btn-primary" t-on-click="saveCoordinates">
+                    Save Coordinates
+                </button>
+            </div>
+        </div>
+    </t>
+</templates>
