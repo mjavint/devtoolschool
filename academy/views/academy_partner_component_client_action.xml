@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Client Action academy.partner_component -->
+    <record id="action_partner_component" model="ir.actions.client">
+        <field name="name">Academy - Partner</field>
+        <field name="tag">academy.partner_component</field>
+    </record>
+
+    <menuitem id="menu_academy" name="Academy" sequence="10"/>
+    <menuitem id="menu_partner_component" name="Partners" parent="menu_academy" action="action_partner_component" sequence="10"/>
+</odoo>

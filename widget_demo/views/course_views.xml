@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- View course View List -->
+    <record id="view_course_list" model="ir.ui.view">
+        <field name="name">view.course.list</field>
+        <field name="model">course</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="id" widget="handle"/>
+                <field name="name"/>
+                <field name="profesor_id"/>
+                <field name="course_type"/>
+                <field name="priority" widget="priority" />
+                <field name="percent" widget="percentpie"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- View course form -->
+    <record id="view_course_form" model="ir.ui.view">
+        <field name="name">view.course.form</field>
+        <field name="model">course</field>
+        <field name="arch" type="xml">
+            <form string="Course">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="Name..."/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="profesor_id" domain="[('is_company', '=', True)]" widget="selection"/>
+                            <field name="course_type" widget="radio" options="{'horizontal': true}"/>
+                            <field name="priority" widget="priority" />
+                        </group>
+                        <group>
+                            <field name="course_date" widget="datetime"/>
+                            <field name="percent" widget="percentpie"/>
+                            <field name="insignea" widget="image_url"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="source_code" widget="code"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- View course search -->
+    <record id="view_course_search" model="ir.ui.view">
+        <field name="name">view.course.search</field>
+        <field name="model">course</field>
+        <field name="arch" type="xml">
+            <search>
+                <group expand="1" string="Group By">
+                    <filter string="Name" name="name" domain="[]" context="{'group_by':'name'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action course -->
+    <record id="action_course" model="ir.actions.act_window">
+        <field name="name">Course</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">course</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                There is no examples click here to add new Course.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_widget_root" name="Widget" />
+    <menuitem id="menu_widget_cat" name="Widget Categoría" parent="menu_widget_root"/>
+    <menuitem id="menu_action_course" name="action_course" parent="menu_widget_cat" action="action_course" sequence="11"/>
+
+</odoo>

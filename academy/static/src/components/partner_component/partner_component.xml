@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates xml:space="preserve">
+    <t t-name="academy.PartnerComponent" owl="1">
+        <div class="o_action">
+            <Layout display="{
+                controlPanel: {
+                    'top-right' : false,
+                    'top-left' : false,
+                    'bottom-right': false,
+                    'bottom-left': false,
+                }
+            }">
+                <button t-on-click="refreshData">Refrescar Datos</button>
+                <div class="o_main_data">
+                    <div class="o_data_partner">
+                        <h2>Partners Destacados</h2>
+                        <input t-model="state.filterPartnerText" placeholder="Filtrar partners por nombre" />
+                        <ul>
+                            <t t-foreach="filterPartners()" t-as="partner" t-key="partner.id">
+                                <li>
+                                    <t t-esc="partner.name" />
+-                                    <t t-esc="partner.email" />
+                                </li>
+                            </t>
+                        </ul>
+                    </div>
+
+                    <div class="o_data_post">
+                        <h2>Posts Externos</h2>
+                        <input t-model="state.filterPostText" placeholder="Filtrar titulo del post" />
+                        <ul>
+                            <t t-foreach="filterPosts()" t-as="post" t-key="post.id">
+                                <li>
+                                    <t t-esc="post.title" />
+-                                    <t t-esc="post.publishedAt" />
+                                </li>
+                            </t>
+                        </ul>
+                    </div>
+                </div>
+            </Layout>
+        </div>
+    </t>
+</templates>
