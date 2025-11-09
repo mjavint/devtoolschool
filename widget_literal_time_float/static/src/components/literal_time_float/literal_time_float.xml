@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates xml:space="preserve">
+    <t t-name="widget_literal_time_float.LiteralTimeFloat">
+        <span t-if="isReadonly"
+            class="o_field_literal_time_float_readonly"
+            t-esc="formattedValue" />
+        <input t-else=""
+            type="text"
+            class="o_input"
+            t-att-id="props.id"
+            t-att-placeholder="props.placeholder || 'e.g., 1d 3h 30m'"
+            t-ref="literalTimeFloatInput" />
+    </t>
+</templates>

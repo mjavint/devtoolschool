@@ -1,0 +1,2 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_ob_task_manager,ob_task_manager,model_ob_task,,1,1,1,1

@@ -1,0 +1,49 @@
+.o_literal_time_float_field {
+    display: inline-block;
+
+    .o_field_literal_time_float_readonly {
+        display: inline-block;
+        padding: 0.375rem 0.75rem;
+        font-weight: 500;
+        color: $o-main-text-color;
+
+        &:empty::before {
+            content: '—';
+            color: $text-muted;
+        }
+    }
+
+    input.form-control {
+        min-width: 120px;
+
+        &::placeholder {
+            font-style: italic;
+            opacity: 0.6;
+        }
+
+        &:focus {
+            border-color: $o-brand-primary;
+            box-shadow: 0 0 0 0.2rem rgba($o-brand-primary, 0.25);
+        }
+    }
+}
+
+// Estilos para vista de lista
+.o_list_view {
+    .o_literal_time_float_field {
+        .o_field_literal_time_float_readonly {
+            padding: 0;
+        }
+    }
+}
+
+// Estilos para vista kanban
+.o_kanban_view {
+    .o_literal_time_float_field {
+        .o_field_literal_time_float_readonly {
+            padding: 0.25rem 0.5rem;
+            background-color: $o-view-background-color;
+            border-radius: 3px;
+        }
+    }
+}

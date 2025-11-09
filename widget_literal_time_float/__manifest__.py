@@ -1,14 +1,16 @@
 {
-    "name": "Training Test",
+    "name": "Widget Literal Time Float",
     "version": "1.0.0",
-    "summary": """ Training to start implementing tests in Python and Javascript for Odoo """,
-    "author": "Odoo Brain",
+    "summary": """ Widget Literal Time Float Summary """,
+    "author": "odoobrain",
     "website": "https://www.youtube.com/@odoobrain",
-    "category": "Testing",
+    "category": "web",
     "depends": ["base", "web"],
     "data": [],
     "assets": {
-        "web.assets_backend": ["training_test/static/src/**/*"],
+        "web.assets_backend": [
+            "widget_literal_time_float/static/src/**/*",
+        ],
     },
     "application": True,
     "installable": True,
