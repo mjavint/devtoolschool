@@ -11,6 +11,9 @@
         "web.assets_backend": [
             "widget_literal_time_float/static/src/**/*",
         ],
+        "web.assets_unit_tests": [
+            "widget_literal_time_float/static/tests/literal_time_float.test.js",
+        ],
     },
     "application": True,
     "installable": True,
