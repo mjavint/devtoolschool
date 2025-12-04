@@ -23,4 +23,8 @@ export class TaskList extends Component {
       ev.target.value = '';
     }
   }
+
+  deleteList() {
+    this.store.deleteList(this.props.list.id);
+  }
 }

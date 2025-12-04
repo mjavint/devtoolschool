@@ -5,6 +5,9 @@
         <div class="o-todolist border m-1 p-2">
             <h3>
                 <t t-esc="props.list.name"/>
+                <span role="button"
+                class="fa fa-remove ms-2 text-danger"
+                t-on-click="deleteList"/>
             </h3>
             <input type="text"
                 placeholder="Add a Task"
